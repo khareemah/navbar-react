@@ -7,9 +7,9 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div style={{ height: '100vh', backgroundColor: ' lightblue' }}></div>
       <Home />
       <About />
+      <div style={{ height: '60vh', backgroundColor: 'black' }}></div>
     </>
   );
 };

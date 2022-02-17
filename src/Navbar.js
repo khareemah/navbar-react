@@ -8,6 +8,17 @@ const Navbar = () => {
   const toggleContainer = useRef(null);
   const [showLinks, setShowLinks] = useState(false);
 
+  const handleLinkClick = (e) => {
+    e.preventDefault();
+    const target = e.target.getAttribute('href');
+    const section = document.querySelector(target).offsetTop;
+    console.log(section);
+    window.scrollTo({
+      left: 0,
+      top: section - 64,
+      // 64px is the height of the header
+    });
+  };
   useEffect(() => {
     const ulHeight = ulContainer.current.getBoundingClientRect().height;
     if (showLinks) {
@@ -38,7 +49,9 @@ const Navbar = () => {
               const { id, text, url } = link;
               return (
                 <li key={id} onClick={() => setShowLinks(false)}>
-                  <a href={url}>{text}</a>
+                  <a href={url} onClick={handleLinkClick}>
+                    {text}
+                  </a>
                 </li>
               );
             })}

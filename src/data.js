@@ -9,21 +9,6 @@ const links = [
     text: 'about',
     url: '#about',
   },
-  {
-    id: 3,
-    text: 'service',
-    url: '#service',
-  },
-  {
-    id: 4,
-    text: 'works',
-    url: '#works',
-  },
-  {
-    id: 5,
-    text: 'contact',
-    url: '#contacts',
-  },
 ];
 
 export { links };
