@@ -1,22 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaBars } from 'react-icons/fa';
 import { links } from './data';
 
 const Navbar = () => {
   const navContainer = useRef(null);
   const ulContainer = useRef(null);
   const toggleContainer = useRef(null);
+  const headerContainer = useRef(null);
   const [showLinks, setShowLinks] = useState(false);
 
   const handleLinkClick = (e) => {
+    const headerContainerHeight =
+      headerContainer.current.getBoundingClientRect().height;
+    console.log(headerContainerHeight);
     e.preventDefault();
     const target = e.target.getAttribute('href');
     const section = document.querySelector(target).offsetTop;
-    console.log(section);
     window.scrollTo({
       left: 0,
-      top: section - 64,
-      // 64px is the height of the header
+      top: section - headerContainerHeight,
     });
   };
   useEffect(() => {
@@ -31,7 +32,7 @@ const Navbar = () => {
   }, [showLinks]);
   return (
     <header>
-      <section className="header-center">
+      <section className="header-center" ref={headerContainer}>
         <article className="logo">
           <a href="">UPVESH</a>
         </article>
